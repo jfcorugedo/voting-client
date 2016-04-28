@@ -1,12 +1,16 @@
 {
   "name": "voting-client",
   "version": "1.0.0",
-  "description": "",
+  "description": "Demo project to play a bit with React and Redux.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "jfcorugedo",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "1.13.0",
+    "webpack-dev-server": "1.14.1"
+  }
 }
