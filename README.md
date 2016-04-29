@@ -1,7 +1,7 @@
 # voting-client
 Demo project to play a bit with React and Redux. It's the UI application of an online voting system. Its server side part is in voting-server repository
 
-It's based on this fantastic [redux tutorial](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html) of [@teropa](https://twitter.com/teropa). 
+It's based on this fantastic [redux tutorial](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html) of [@teropa](https://twitter.com/teropa), with some minor changes, like using enzyme instead of jsdom.
 
 It's a very simple application that allow users to vote and watch current results.
 
