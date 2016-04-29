@@ -3,7 +3,9 @@ Demo project to play a bit with React and Redux. It's the UI application of an o
 
 It's based on this fantastic [redux tutorial](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html) of [@teropa](https://twitter.com/teropa). 
 
-It's a very simple application that allow users to vote and watch current results:
+It's a very simple application that allow users to vote and watch current results.
+
+The voting screen is very simple. While voting is ongoing, it will always display two buttons, one for each of the entries being voted on. When the vote is over, it will display the winner:
 
 ![Image of the UI](http://teropa.info/images/voting_shots.png)
 
