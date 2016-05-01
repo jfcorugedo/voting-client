@@ -5,9 +5,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Voting from './components/Voting';
 
+require('./style.css');
+
 const pair = ['Avengers', 'Antman'];
 
 ReactDOM.render(
-    <Voting pair={pair} />,
+    <Voting pair={pair} hasVoted="Avengers"/>,
     document.getElementById('app')
 );

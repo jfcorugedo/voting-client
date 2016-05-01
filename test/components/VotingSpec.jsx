@@ -26,8 +26,8 @@ describe('Voting', () => {
 
         const onButtonClick = sinon.spy();
         const wrapper = shallow(<Voting pair={['Avengers', 'Antman']} vote={onButtonClick} />);
-        const firstButton = wrapper.find('button').first();
 
+        const firstButton = wrapper.find('button').first();
         firstButton.simulate('click');
 
         expect(onButtonClick.calledOnce).to.be.true;
