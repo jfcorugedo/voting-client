@@ -2,35 +2,34 @@ import Voting from '../../src/components/Voting';
 import React from 'react';
 import {expect} from 'chai';
 import {shallow} from 'enzyme';
-import sinon from 'sinon';
 
 describe('Voting', () => {
 
-    it('renders a pair of buttons', () => {
+    it('renders only Vote component', () => {
 
         const wrapper = shallow(<Voting pair={['Avengers', 'Antman']} />);
 
-        expect(wrapper.find('button')).to.have.length(2);
+        //shallow only processes nodes at first level, so Vote and Winner won't be translated to html.
+        //If you need to test inner components, use render function on them:
+        //expect(wrapper.find('Vote').render().find('button')).to.have.length(2);
+        expect(wrapper.find('Vote')).to.have.length(1);
+        expect(wrapper.find('Winner')).to.have.length(0);
     });
 
-    it('renders entries ordered by position', () => {
+    it('pass all the props to Vote component', () => {
 
-        const wrapper = shallow(<Voting pair={['Avengers', 'Antman']} />);
-        const buttons = wrapper.find('button');
+        const wrapper = shallow(<Voting pair={['Avengers', 'Antman']} hasVoted="Antman" test="Unused"/>);
 
-        expect(buttons.first().childAt(0).text()).to.equal('Avengers');
-        expect(buttons.last().childAt(0).text()).to.equal('Antman');
+        expect(wrapper.find('Vote').props().pair).to.deep.equal(['Avengers', 'Antman']);
+        expect(wrapper.find('Vote').props().hasVoted).to.equal('Antman');
+        expect(wrapper.find('Vote').props().test).to.equal('Unused');
     });
 
-    it('simulates click events', () => {
+    it('renders only Winner component when there is a winner', () => {
 
-        const onButtonClick = sinon.spy();
-        const wrapper = shallow(<Voting pair={['Avengers', 'Antman']} vote={onButtonClick} />);
+        const wrapper = shallow(<Voting pair={['Avengers', 'Antman']} winner="Antman" />);
 
-        const firstButton = wrapper.find('button').first();
-        firstButton.simulate('click');
-
-        expect(onButtonClick.calledOnce).to.be.true;
-        expect(onButtonClick.calledWith("Avengers")).to.be.true;
+        expect(wrapper.find('Winner')).to.have.length(1);
+        expect(wrapper.find('Vote')).to.have.length(0);
     });
 });
