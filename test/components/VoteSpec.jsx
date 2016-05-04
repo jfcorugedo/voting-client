@@ -22,7 +22,7 @@ describe('Vote', () => {
         expect(buttons.last().childAt(0).text()).to.equal('Antman');
     });
 
-    it('simulates click events', () => {
+    it('invokes vote callback function when any entry is pressed', () => {
 
         const onButtonClick = sinon.spy(),
               wrapper = shallow(<Vote pair={['Avengers', 'Antman']} vote={onButtonClick} />);
@@ -30,8 +30,8 @@ describe('Vote', () => {
         const firstButton = wrapper.find('button').first();
         firstButton.simulate('click');
 
-        expect(onButtonClick.calledOnce).to.be.true;
-        expect(onButtonClick.calledWith("Avengers")).to.be.true;
+        expect(onButtonClick.calledOnce).to.equal(true);
+        expect(onButtonClick.calledWith("Avengers")).to.equal(true);
     });
 
     it('disables buttons when user has voted', () => {
