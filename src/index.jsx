@@ -5,8 +5,8 @@ import {createStore} from 'redux';
 import reducer from './reducer';
 import {Provider} from 'react-redux';
 import App from './components/App';
-import Voting from './components/Voting';
-import Results from './components/Results';
+import {VotingContainer} from './components/Voting';
+import {ResultsContainer} from './components/Results';
 
 require('./style.css');
 
@@ -18,15 +18,15 @@ store.dispatch({
             pair: ['Batman', 'Superman'],
             tally: {
                 Batman: 23,
-                Superman: 1
+                Superman: 12
             }
         }
     }
 });
 
 const routes = <Route component={App}>
-    <Route path="/results" component={Results} />
-    <Route path="/" component={Voting} />
+    <Route path="/results" component={ResultsContainer} />
+    <Route path="/" component={VotingContainer} />
 </Route>;
 
 //hashHistory manages the routing history with the hash portion of the URL
