@@ -12,20 +12,15 @@ import io from 'socket.io-client';
 require('./style.css');
 
 const store = createStore(reducer);
-store.dispatch({
-    type: 'SET_STATE',
-    state: {
-        vote: {
-            pair: ['Batman', 'Superman'],
-            tally: {
-                Batman: 23,
-                Superman: 12
-            }
-        }
-    }
-});
 
+//Establish a new websocket connection
 const socket = io(`${location.protocol}//${location.hostname}:8090`);
+
+//Listen to any 'state' event received
+socket.on('state', state => {
+    console.log('Received state action', state);
+    store.dispatch({type:'SET_STATE', state});
+});
 
 const routes = <Route component={App}>
     <Route path="/results" component={ResultsContainer} />
