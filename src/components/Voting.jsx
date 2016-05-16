@@ -3,6 +3,7 @@ import Winner from './Winner';
 import Vote from './Vote';
 import {connect} from 'react-redux';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import * as actionCreators from '../actionCreators';
 
 /**
  * This module now exports two components: the pure component (Voting) and the connected component (VotingContainer):
@@ -38,5 +39,6 @@ function mapStateToProps(state) {
 }
 
 //Returns a connected version of our pure component Voting. That connected component wraps the pure component
-//and keeps it in sync with the current value of the Redux store
-export const VotingContainer = connect(mapStateToProps)(Voting);
+//and keeps it in sync with the current value of the Redux store.
+//By passing action creators to this method, Redux will inject all the creators in the props of this component
+export const VotingContainer = connect(mapStateToProps, actionCreators)(Voting);
