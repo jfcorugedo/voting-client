@@ -38,7 +38,8 @@ function mapStateToProps(state) {
     };
 }
 
-//Returns a connected version of our pure component Voting. That connected component wraps the pure component
-//and keeps it in sync with the current value of the Redux store.
-//By passing action creators to this method, Redux will inject all the creators in the props of this component
+// Returns a connected version of our pure component Voting. That connected component wraps the pure component
+// and keeps it in sync with the current value of the Redux store.
+// By passing action creators to this method, Redux will inject functions into the component that will
+// use creators to create an action and dispatch it to the store
 export const VotingContainer = connect(mapStateToProps, actionCreators)(Voting);
