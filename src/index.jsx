@@ -7,6 +7,7 @@ import {Provider} from 'react-redux';
 import App from './components/App';
 import {VotingContainer} from './components/Voting';
 import {ResultsContainer} from './components/Results';
+import {setState} from './actionCreators';
 import io from 'socket.io-client';
 
 require('./style.css');
@@ -19,7 +20,7 @@ const socket = io(`${location.protocol}//${location.hostname}:8090`);
 //Listen to any 'state' event received
 socket.on('state', state => {
     console.log('Received state action', state);
-    store.dispatch({type:'SET_STATE', state});
+    store.dispatch(setState(state));
 });
 
 const routes = <Route component={App}>

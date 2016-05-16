@@ -158,7 +158,7 @@ describe('reducer', () => {
                 vote: { pair: ['Antman', 'Deadpool'] }
             }
         };
-
+        
         const nextState = reducer(initialState, action);
 
         expect(nextState).to.equal(fromJS({
