@@ -7,7 +7,8 @@
     "test": "mocha --compilers js:babel-core/register --require ./test/testHelper.js \"test/**/*@(.js|jsx)\"",
     "build": "webpack",
     "run": "webpack-dev-server",
-    "coverage": "nyc npm test"
+    "local-coverage": "nyc npm test",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [],
   "author": "jfcorugedo",
@@ -39,6 +40,7 @@
   },
   "dependencies": {
     "classnames": "2.2.4",
+    "coveralls": "2.11.9",
     "immutable": "3.8.1",
     "react": "15.0.1",
     "react-addons-pure-render-mixin": "15.0.1",
