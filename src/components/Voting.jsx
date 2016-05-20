@@ -42,4 +42,7 @@ function mapStateToProps(state) {
 // and keeps it in sync with the current value of the Redux store.
 // By passing action creators to this method, Redux will inject functions into the component that will
 // use creators to create an action and dispatch it to the store
+// So all the work is done by Redux: it intercepts the call of vote(enrty) inside Vote component, calls the
+// creator function with the same name (vote) and take the generated event and dispatch it to the store
+// Then the middleware is in charge of sending this event to the server
 export const VotingContainer = connect(mapStateToProps, actionCreators)(Voting);
