@@ -13,10 +13,6 @@ import io from 'socket.io-client';
 
 require('./style.css');
 
-//Inject our middleware into Redux
-const createStoreWithMiddleware = applyMiddleware(remoteActionMiddleware)(createStore);
-const store = createStoreWithMiddleware(reducer);
-
 //Establish a new websocket connection
 const socket = io(`${location.protocol}//${location.hostname}:8090`);
 
@@ -25,6 +21,10 @@ socket.on('state', state => {
     console.log('Received state action', state);
     store.dispatch(setState(state));
 });
+
+//Inject our middleware into Redux
+const createStoreWithMiddleware = applyMiddleware(remoteActionMiddleware(socket))(createStore);
+const store = createStoreWithMiddleware(reducer);
 
 const routes = <Route component={App}>
     <Route path="/results" component={ResultsContainer} />

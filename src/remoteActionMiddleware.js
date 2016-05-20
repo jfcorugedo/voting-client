@@ -10,8 +10,15 @@
 //     };
 //   };
 // }
-export default store => next => action => {
+// It follows the principle of currying: https://en.wikipedia.org/wiki/Currying
+// that is the technique of translating a function with several arguments into evaluating several functions of one
+// argument each one
+export default socket => store => next => action => {
 
     console.log('Executing middleware over the action', action);
+    if(action.meta && action.meta.remote) {
+        console.log('Sending action to the server', action);
+        socket.emit('action', action);
+    }
     return next(action);
 };
