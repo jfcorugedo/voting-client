@@ -4,7 +4,7 @@
   "description": "Demo project to play a bit with React and Redux.",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --reporter=lcov --reporter=text --reporter=html npm run run-tests",
+    "test": "nyc --all --require babel-register --reporter=lcov --reporter=text --reporter=html npm run run-tests",
     "run-tests" : "mocha --compilers js:babel-core/register --require ./test/testHelper.js \"test/**/*@(.js|jsx)\"",
     "build": "webpack",
     "run": "webpack-dev-server",
@@ -51,6 +51,7 @@
     "socket.io-client": "1.4.6"
   },
   "nyc": {
+    "include": ["src/**"],
     "extension": [
       ".jsx"
     ]
