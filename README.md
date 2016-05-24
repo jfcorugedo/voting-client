@@ -1,4 +1,4 @@
-# voting-client
+# voting-client [![Build status](https://travis-ci.org/jfcorugedo/voting-client.svg?branch=master)](https://travis-ci.org/jfcorugedo/voting-client) [![Coverage Status](https://coveralls.io/repos/github/jfcorugedo/voting-client/badge.svg?branch=master)](https://coveralls.io/github/jfcorugedo/voting-client?branch=master)
 Demo project to play a bit with React and Redux. It's the UI application of an online voting system. Its server side part is in voting-server repository
 
 It's based on this fantastic [redux tutorial](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html) of [@teropa](https://twitter.com/teropa), with some minor changes, like using enzyme instead of jsdom.
