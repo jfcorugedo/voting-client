@@ -12,8 +12,12 @@ describe('App', () => {
 
         const wrapper = shallow(<App>
             <Results />
+            <p></p>
         </App>);
 
+        console.log('App resulting HTML:', wrapper.html());
+
         expect(wrapper.contains(<Results />)).to.equal(true);
+        expect(wrapper.contains(<p />)).to.equal(true);
     });
 });
